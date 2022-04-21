@@ -1,7 +1,5 @@
 # board
 # display board
-# play game
-  # handle a turn
 # function to check win
   # check rows
   # check columns
@@ -13,7 +11,7 @@
 board = ["-","-","-",
          "-","-","-",
          "-","-","-"]
-currentPlayer = "x"
+currentPlayer = "X"
 winner = None
 gameRunning = True         
 
@@ -77,6 +75,14 @@ def checkTie(board):
     printBoard(board)
     print("It is a tie!")
     gameRunning = False
+
+# switch the player
+def switchPlayer():
+  global currentPlayer
+  if currentPlayer == "X":
+    currentPlayer == "O"
+  else:
+    currentPlayer = "X"  
 
   
  
