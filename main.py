@@ -7,11 +7,11 @@
 # function to check tie
 # function to flip player
 
-
+import random
 board = ["-","-","-",
          "-","-","-",
          "-","-","-"]
-currentPlayer = "X"
+currentPlayer = "x"
 winner = None
 gameRunning = True         
 
@@ -24,7 +24,7 @@ def printBoard(board):
   print(board[6] + " | " + board[7] + " | " + board[8]) 
   print("---------------")
 
-# take player input
+
 def playerInput(board):
   inp = int(input("Enter a number 1-9: "))
   if inp >= 1 and inp <= 9 and board[inp-1] =="-":
@@ -87,14 +87,30 @@ def checkWin():
 def switchPlayer():
   global currentPlayer
   if currentPlayer == "X":
-    currentPlayer == "O"
+    currentPlayer == "o"
   else:
-    currentPlayer = "X"  
+    currentPlayer = "x"  
+
+# computer
+def computer(board):
+  while currentPlayer == "o":
+    position = random.randint(0,8)
+    if board[position] == "-":
+      board[position] = "o"
+      switchPlayer()
+
 
 # check for win or tie again
 while gameRunning:
   printBoard(board)
   playerInput(board)
+  checkWin()
+  checkTie(board)
+  switchPlayer()
+  computer(board)
+  checkWin()
+  checkTie(board)
+
 
 
 
