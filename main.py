@@ -59,6 +59,25 @@ def checkRow(board):
   elif board[2] == board[5] == board[8] and board[2] != "-":
     winner = board[2]
     return True  
+
+# check diagonal
+def checkDiag(board):
+  global winner
+  if board[0] == board[4] == board[8] and board[0] != "-":
+    winner = board[0]
+    return True
+  elif board[2] == board[4] == board[6] and board[2] != "-":
+    winner = board[2]
+    return True
+
+# check tie
+def checkTie(board):
+  global gameRunning
+  if "-" not in board:
+    printBoard(board)
+    print("It is a tie!")
+    gameRunning = False
+
   
  
 
